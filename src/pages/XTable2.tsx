@@ -231,7 +231,7 @@ export default class XTable2 extends React.Component {
   render() {
     return (
       <div className={styles.normal}>
-        <GridCell cell={this.state.cell} />
+        <GridCell cell={this.state.cell} lineColor="green" />
       </div>
     );
   }

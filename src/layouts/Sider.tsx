@@ -57,7 +57,7 @@ export default class Sider extends React.Component {
                   <Link to="/XTable2">非子表嵌套之Customer define</Link>
                 </Menu.Item>
                 <Menu.Item key="3">
-                  <Link to="/XTable2">子表嵌套与单元格合并</Link>
+                  <Link to="/XTable3">子表嵌套与单元格合并</Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>

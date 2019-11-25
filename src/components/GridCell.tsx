@@ -61,8 +61,8 @@ export class Cell {
 //   }
 // }
 
-export class GridCell extends React.Component<{ cell: Cell; inner?: boolean }> {
-  constructor(props: { cell: Cell; inner?: boolean }) {
+export class GridCell extends React.Component<{ cell: Cell; lineColor?: string; inner?: boolean }> {
+  constructor(props: { cell: Cell; lineColor?: string; inner?: boolean }) {
     super(props);
   }
 
@@ -107,7 +107,7 @@ export class GridCell extends React.Component<{ cell: Cell; inner?: boolean }> {
       return (
         <Row gutter={[1, 1]} key={index}>
           <div className={cell.className}>
-            <GridCell cell={cell.iCell as Cell} inner={true} />
+            <GridCell cell={cell.iCell as Cell} inner={true} lineColor={this.props.lineColor} />
           </div>
         </Row>
       );
@@ -167,6 +167,10 @@ export class GridCell extends React.Component<{ cell: Cell; inner?: boolean }> {
     } else {
       tableStyle = styles.defaultGrid;
     }
-    return <div className={tableStyle}>{this.buildGrid()}</div>;
+    return (
+      <div className={tableStyle} style={{ backgroundColor: this.props.lineColor }}>
+        {this.buildGrid()}
+      </div>
+    );
   }
 }

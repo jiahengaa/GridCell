@@ -69,7 +69,11 @@ export default class XTable2 extends React.Component {
           span: 4,
           type: CellType.Custom,
           render: () => {
-            return <Input />;
+            return (
+              <Input
+                style={{ borderRadius: '0px', border: 'none', boxShadow: 'none', padding: '0px' }}
+              />
+            );
           },
         },
         {
@@ -200,7 +204,15 @@ export default class XTable2 extends React.Component {
                         </Col>
                         <Col span={4}>
                           <div>
-                            <Input defaultValue={f.desc}></Input>
+                            <Input
+                              style={{
+                                borderRadius: '0px',
+                                border: 'none',
+                                boxShadow: 'none',
+                                padding: '0px',
+                              }}
+                              defaultValue={f.desc}
+                            ></Input>
                           </div>
                         </Col>
                         <Col span={4}>
