@@ -231,6 +231,9 @@ export default class XTable2 extends React.Component {
   render() {
     return (
       <div className={styles.normal}>
+        <div style={{ fontSize: 'large', color: 'darkorange' }}>
+          有自定义控件或者第三方控件交互，针对此类型表单，暂时没有发现有什么比较好的第三方ui库替代
+        </div>
         <GridCell cell={this.state.cell} lineColor="green" />
       </div>
     );

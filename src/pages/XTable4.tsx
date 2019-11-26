@@ -490,6 +490,9 @@ export default class XTable4 extends React.Component {
   render() {
     return (
       <div className={styles.normal}>
+        <div style={{ fontSize: 'large', color: 'darkorange' }}>
+          由于表头等地方没有自定义ui控件需要使用，如果觉得这种方案麻烦，可以使用其他ui库的table实现,如ant的table
+        </div>
         <GridCell cell={this.state.cell} lineColor="green" />
       </div>
     );
