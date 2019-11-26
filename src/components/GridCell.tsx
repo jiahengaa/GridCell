@@ -40,6 +40,8 @@ export class Cell {
   iCell?: Cell;
 }
 
+export const specialDiv = styles.specialDiv;
+
 // export class CellInput extends React.Component {
 //   render() {
 //     return (
@@ -130,8 +132,8 @@ export class GridCell extends React.Component<{ cell: Cell; lineColor?: string; 
       );
     } else {
       return (
-        <Col span={cell.span} key={index} style={{ marginBottom: '-1px' }}>
-          <div className={styles.specialDiv} style={cell.style}>
+        <Col span={cell.span} key={index} style={cell.style}>
+          <div className={styles.specialDiv}>
             {childContent?.map(ct => {
               return ct;
             })}

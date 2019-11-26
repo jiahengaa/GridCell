@@ -7,6 +7,7 @@ import { Menu, Icon, Col, Row } from 'antd';
 import XTable from '../pages/XTable';
 import XTable2 from '../pages/XTable2';
 import XTable3 from '../pages/XTable3';
+import XTable4 from '../pages/XTable4';
 
 const { SubMenu } = Menu;
 
@@ -59,6 +60,9 @@ export default class Sider extends React.Component {
                 <Menu.Item key="3">
                   <Link to="/XTable3">子表嵌套与单元格合并</Link>
                 </Menu.Item>
+                <Menu.Item key="4">
+                  <Link to="/XTable4">复杂分组嵌套</Link>
+                </Menu.Item>
               </SubMenu>
             </Menu>
           </Col>
@@ -73,6 +77,9 @@ export default class Sider extends React.Component {
               </Route>
               <Route path="/XTable3">
                 <XTable3 />
+              </Route>
+              <Route path="/XTable4">
+                <XTable4 />
               </Route>
             </Switch>
           </Col>

@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './XTable3.css';
 
 import { Cell, CellType, DataType, GridCell } from '../components/GridCell';
-import { Input, Select, DatePicker, Row, Col } from 'antd';
+import { Input, Select, DatePicker, Row, Col, Table } from 'antd';
 
 export default class XTable2 extends React.Component {
   constructor(props: any) {
@@ -116,15 +116,26 @@ export default class XTable2 extends React.Component {
         {
           text: '详情列：',
           span: 2,
+          type: CellType.Custom,
           style: {
             height: (() => {
-              let h = (this.state.dogFoods.length + 1) * 32 + this.state.dogFoods.length;
-              if (h < 32) {
-                return 32 + 'px';
+              let h =
+                (this.state.dogFoods.length + 1) * 33.5 - 0.5 * (this.state.dogFoods.length + 3);
+              if (h < 60) {
+                return 64 + 'px';
               } else {
                 return h + 'px';
               }
             })(),
+            textAlign: 'center',
+            alignItems: 'center',
+          },
+          render: () => {
+            return (
+              <div style={{ height: 'inherit', display: 'inline-flex' }}>
+                <div style={{ alignSelf: 'center' }}>详情列：</div>
+              </div>
+            );
           },
         },
         {
@@ -132,6 +143,9 @@ export default class XTable2 extends React.Component {
           span: 22,
           type: CellType.Group,
           dataType: DataType.List,
+          style: {
+            marginBottom: '-1px',
+          },
           child: [
             {
               text: '第二栏表头',
@@ -182,7 +196,11 @@ export default class XTable2 extends React.Component {
               span: 24,
               render: () => {
                 if (this.state.dogFoods === undefined || this.state.dogFoods.length === 0) {
-                  return <div key={0} style={{ height: '32px', backgroundColor: '#fff' }}></div>;
+                  return (
+                    <div key={0} style={{ height: '31px', backgroundColor: '#fff' }}>
+                      无数据
+                    </div>
+                  );
                 } else {
                   return this.state.dogFoods.map((f: any, index) => {
                     return (

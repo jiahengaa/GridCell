@@ -1,6 +1,10 @@
 [class~='ant-col'] {
   background: transparent;
   border: 0;
+  margin: 0px;
+}
+[class~='ant-row'] {
+  margin: 0px;
 }
 [class~='ant-col'] > div {
   background: white;
