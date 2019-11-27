@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './XTable.css';
 
 import { Cell, CellType, DataType, GridCell } from '../components/GridCell';
-import { Input, Select, DatePicker, Row, Col } from 'antd';
+import { Input, Select, DatePicker } from 'antd';
 
 export default class XTable extends React.Component {
   constructor(props: any) {
@@ -153,6 +153,7 @@ export default class XTable extends React.Component {
       childTable.child?.push({
         span: 24,
         type: CellType.Group,
+        style: { marginRight: '-0.5px' },
         child: [
           {
             text: f.name.toString(),

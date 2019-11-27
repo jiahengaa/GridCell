@@ -20,6 +20,10 @@ const config: IConfig = {
           component: './XTable4',
         },
         {
+          path: '/XTable5',
+          component: './XTable5',
+        },
+        {
           path: '/XTable',
           component: './XTable',
         },

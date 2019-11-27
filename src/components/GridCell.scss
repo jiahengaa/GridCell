@@ -1,34 +1,205 @@
-[class~='ant-col'] {
-  background: transparent;
-  border: 0;
+.gridCell {
   margin: 0px;
-}
-[class~='ant-row'] {
-  margin: 0px;
-}
-[class~='ant-col'] > div {
-  background: white;
-  height: 32px;
-  line-height: 32px;
-  font-size: 13px;
-}
-
-.defaultGrid {
-  background-color: skyblue;
-  padding: 1px;
-  padding: 2px;
-}
-
-.innerGrid {
-  background-color: lightgray;
-  margin: 1px;
   padding: 0px;
-  // margin-top: 1px;
-  // margin-left: 1px;
-  // margin-right: 1px;
-  // margin-bottom: 1px;
-}
+  padding-right: 0.5px;
+  padding-bottom: 0.5px;
+  background-color: darkblue;
 
-.specialDiv {
-  background-color: transparent !important;
+  .cell {
+    background-color: white;
+    height: 100%;
+  }
+
+  .row {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+  }
+
+  .col,
+  .col1,
+  .col2,
+  .col3,
+  .col4,
+  .col5,
+  .col6,
+  .col7,
+  .col8,
+  .col9,
+  .col10,
+  .col11,
+  .col12,
+  .col13,
+  .col14,
+  .col15,
+  .col16,
+  .col17,
+  .col18,
+  .col19,
+  .col20,
+  .col21,
+  .col22,
+  .col23,
+  .col24 {
+    box-sizing: border-box;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding: 0.5px;
+    background-color: transparent;
+  }
+
+  .col {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .col1 {
+    -ms-flex-preferred-size: 4.16666667%;
+    flex-basis: 4.16666667%;
+    max-width: 4.16666667%;
+  }
+
+  .col2 {
+    -ms-flex-preferred-size: 8.33333333%;
+    flex-basis: 8.33333333%;
+    max-width: 8.33333333%;
+  }
+
+  .col3 {
+    -ms-flex-preferred-size: 12.5%;
+    flex-basis: 12.5%;
+    max-width: 12.5%;
+  }
+
+  .col4 {
+    -ms-flex-preferred-size: 16.66666667%;
+    flex-basis: 16.66666667%;
+    max-width: 16.66666667%;
+  }
+
+  .col5 {
+    -ms-flex-preferred-size: 20.83333333%;
+    flex-basis: 20.83333333%;
+    max-width: 20.83333333%;
+  }
+
+  .col6 {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+
+  .col7 {
+    -ms-flex-preferred-size: 29.16666667%;
+    flex-basis: 29.16666667%;
+    max-width: 29.16666667%;
+  }
+
+  .col8 {
+    -ms-flex-preferred-size: 33.33333333%;
+    flex-basis: 33.33333333%;
+    max-width: 33.33333333%;
+  }
+
+  .col9 {
+    -ms-flex-preferred-size: 37.5%;
+    flex-basis: 37.5%;
+    max-width: 37.5%;
+  }
+
+  .col10 {
+    -ms-flex-preferred-size: 41.66666667%;
+    flex-basis: 41.66666667%;
+    max-width: 41.66666667%;
+  }
+
+  .col11 {
+    -ms-flex-preferred-size: 45.83333333%;
+    flex-basis: 45.83333333%;
+    max-width: 45.83333333%;
+  }
+
+  .col12 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .col13 {
+    -ms-flex-preferred-size: 54.16666667%;
+    flex-basis: 54.16666667%;
+    max-width: 54.16666667%;
+  }
+
+  .col14 {
+    -ms-flex-preferred-size: 58.33333333%;
+    flex-basis: 58.33333333%;
+    max-width: 58.33333333%;
+  }
+
+  .col15 {
+    -ms-flex-preferred-size: 62.5%;
+    flex-basis: 62.5%;
+    max-width: 62.5%;
+  }
+  .col16 {
+    -ms-flex-preferred-size: 66.66666667%;
+    flex-basis: 66.66666667%;
+    max-width: 66.66666667%;
+  }
+  .col17 {
+    -ms-flex-preferred-size: 70.83333333%;
+    flex-basis: 70.83333333%;
+    max-width: 70.83333333%;
+  }
+  .col18 {
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
+  }
+  .col19 {
+    -ms-flex-preferred-size: 79.16666667%;
+    flex-basis: 79.16666667%;
+    max-width: 79.16666667%;
+  }
+  .col20 {
+    -ms-flex-preferred-size: 83.33333333%;
+    flex-basis: 83.33333333%;
+    max-width: 83.33333333%;
+  }
+  .col21 {
+    -ms-flex-preferred-size: 87.5%;
+    flex-basis: 87.5%;
+    max-width: 87.5%;
+  }
+  .col22 {
+    -ms-flex-preferred-size: 91.66666667%;
+    flex-basis: 91.66666667%;
+    max-width: 91.66666667%;
+  }
+  .col23 {
+    -ms-flex-preferred-size: 95.83333333%;
+    flex-basis: 95.83333333%;
+    max-width: 95.83333333%;
+  }
+  .col24 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
 }

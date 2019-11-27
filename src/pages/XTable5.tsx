@@ -1,11 +1,11 @@
 import React from 'react';
 
-import styles from './XTable2.css';
+import styles from './XTable5.css';
 
 import { Cell, CellType, DataType, GridCell, GRow, GCol } from '../components/GridCell';
 import { Input, Select, DatePicker } from 'antd';
 
-export default class XTable2 extends React.Component {
+export default class XTable5 extends React.Component {
   constructor(props: any) {
     super(props);
   }
@@ -149,6 +149,7 @@ export default class XTable2 extends React.Component {
       type: CellType.Custom,
       dataType: DataType.List,
       span: 24,
+      style: { backgroundColor: 'lightgray', marginBottom: '-0.5px' },
       render: () => {
         return this.state.dogFoods.map((f, index) => {
           return (
@@ -234,7 +235,7 @@ export default class XTable2 extends React.Component {
         <div style={{ fontSize: 'large', color: 'darkorange' }}>
           有自定义控件或者第三方控件交互，针对此类型表单，暂时没有发现有什么比较好的第三方ui库替代
         </div>
-        <GridCell cell={this.state.cell} lineColor="green" />
+        <GridCell cell={this.state.cell} lineColor="lightgray" />
       </div>
     );
   }

@@ -1,8 +1,5 @@
 import styles from './GridCell.scss';
 import React, { CSSProperties } from 'react';
-import { Col, Row, Input, Select } from 'antd';
-import { InputProps } from 'antd/lib/input';
-import { InputState } from 'antd/lib/input/Input';
 
 export enum CellType {
   /**
@@ -40,30 +37,102 @@ export class Cell {
   iCell?: Cell;
 }
 
-export const specialDiv = styles.specialDiv;
+export const GRow: React.FC = props => {
+  return <div className={styles.row}>{props.children}</div>;
+};
 
-// export class CellInput extends React.Component {
-//   render() {
-//     return (
-//       <Input
-//         style={{ borderRadius: '0px', border: 'none', boxShadow: 'none', padding: '0px' }}
-//       ></Input>
-//     );
-//   }
-// }
+export class GCol extends React.Component<{
+  key?: string | number;
+  inherit?: boolean;
+  span?: number;
+  children?: React.ReactNode;
+}> {
+  constructor(props: {
+    key?: string | number;
+    inherit?: boolean;
+    span?: number;
+    children?: React.ReactNode;
+  }) {
+    super(props);
+  }
+  render() {
+    return (
+      <div
+        className={getCol(this.props.span)}
+        key={this.props.key}
+        style={this.props.inherit ? { padding: '0px' } : {}}
+      >
+        <div
+          className={styles.cell}
+          style={this.props.inherit ? { backgroundColor: 'transparent' } : {}}
+        >
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
+}
 
-// export class CellSelect extends React.Component {
-//   render() {
-//     return (
-//       <Select
-//         defaultValue="adddaaaaaaa"
-//         style={{ borderRadius: '0px', border: 'none', boxShadow: 'none', padding: '0px' }}
-//       ></Select>
-//     );
-//   }
-// }
+const getCol = (span: number | undefined) => {
+  switch (span) {
+    case 1:
+      return styles.col1;
+    case 2:
+      return styles.col2;
+    case 3:
+      return styles.col3;
+    case 4:
+      return styles.col4;
+    case 5:
+      return styles.col5;
+    case 6:
+      return styles.col6;
+    case 7:
+      return styles.col7;
+    case 8:
+      return styles.col8;
+    case 9:
+      return styles.col9;
+    case 10:
+      return styles.col10;
+    case 11:
+      return styles.col11;
+    case 12:
+      return styles.col12;
+    case 13:
+      return styles.col13;
+    case 14:
+      return styles.col14;
+    case 15:
+      return styles.col15;
+    case 16:
+      return styles.col16;
+    case 17:
+      return styles.col17;
+    case 18:
+      return styles.col18;
+    case 19:
+      return styles.col19;
+    case 20:
+      return styles.col20;
+    case 21:
+      return styles.col21;
+    case 22:
+      return styles.col22;
+    case 23:
+      return styles.col23;
+    case 24:
+      return styles.col24;
+    default:
+      return styles.col;
+  }
+};
 
-export class GridCell extends React.Component<{ cell: Cell; lineColor?: string; inner?: boolean }> {
+export class GridCell extends React.Component<{
+  cell: Cell;
+  lineColor?: string;
+  inner?: boolean;
+}> {
   constructor(props: { cell: Cell; lineColor?: string; inner?: boolean }) {
     super(props);
   }
@@ -75,43 +144,44 @@ export class GridCell extends React.Component<{ cell: Cell; lineColor?: string; 
   buildCell = (cell: Cell, index: number): JSX.Element => {
     if (cell.type === CellType.Text || cell.type === undefined) {
       return (
-        <Col span={cell.span} key={index}>
-          <div className={cell.className} style={cell.style}>
-            {cell.text}
+        <div className={getCol(cell.span)} key={index}>
+          <div className={styles.cell}>
+            <div className={cell.className} style={cell.style}>
+              {cell.text}
+            </div>
           </div>
-        </Col>
+        </div>
       );
     }
 
     if (cell.type === CellType.Custom) {
-      if (cell.dataType === DataType.Default || cell.dataType === undefined) {
-        return (
-          <Col span={cell.span} key={index}>
+      return (
+        <div
+          className={getCol(cell.span)}
+          style={cell.dataType === undefined ? {} : { padding: '0px' }}
+          key={index}
+        >
+          <div
+            className={styles.cell}
+            style={cell.dataType === undefined ? {} : { backgroundColor: 'transparent' }}
+          >
             <div className={cell.className} style={cell.style}>
               {cell.render === undefined ? '' : cell.render()}
             </div>
-          </Col>
-        );
-      } else {
-        return (
-          <Row gutter={[1, 1]} key={index}>
-            <Col span={cell.span} key={index}>
-              <div className={styles.specialDiv} style={cell.style}>
-                {cell.render === undefined ? '' : cell.render()}
-              </div>
-            </Col>
-          </Row>
-        );
-      }
+          </div>
+        </div>
+      );
     }
 
     if (cell.type === CellType.InnerCell) {
       return (
-        <Row gutter={[1, 1]} key={index}>
-          <div className={cell.className}>
-            <GridCell cell={cell.iCell as Cell} inner={true} lineColor={this.props.lineColor} />
+        <div className={getCol(cell.span)} style={{ padding: '0px' }} key={index}>
+          <div className={styles.cell} style={{ backgroundColor: 'transparent' }}>
+            <div className={cell.className} style={cell.style}>
+              <GridCell cell={cell.iCell as Cell} inner={true} lineColor={this.props.lineColor} />
+            </div>
           </div>
-        </Row>
+        </div>
       );
     }
 
@@ -119,28 +189,49 @@ export class GridCell extends React.Component<{ cell: Cell; lineColor?: string; 
     if (cell.type === CellType.Group) {
       if (cell.child !== null && cell.child !== undefined) {
         childContent = this.buildGroup(cell);
+
+        if (cell.dataType === DataType.Default || cell.dataType === undefined) {
+          return (
+            <div key={index} className={getCol(cell.span)} style={{ padding: '0px' }}>
+              <div className={styles.cell} style={{ backgroundColor: 'transparent' }}>
+                <div className={styles.row} style={cell.style}>
+                  {childContent?.map(ct => {
+                    return ct;
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <div className={getCol(cell.span)} style={{ padding: '0px' }} key={index}>
+              <div className={styles.cell} style={{ backgroundColor: 'transparent' }}>
+                {childContent?.map(ct => {
+                  return (
+                    <div className={styles.row} style={cell.style}>
+                      ct
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        }
+      } else {
+        //显示group名称
+        return (
+          <div className={getCol(cell.span)} key={index}>
+            <div className={styles.cell}>
+              <div className={cell.className} style={cell.style}>
+                {cell.text}
+              </div>
+            </div>
+          </div>
+        );
       }
     }
 
-    if (cell.dataType === DataType.Default || cell.dataType === undefined) {
-      return (
-        <Row gutter={[1, 1]} key={index} className={cell.className} style={cell.style}>
-          {childContent?.map(ct => {
-            return ct;
-          })}
-        </Row>
-      );
-    } else {
-      return (
-        <Col span={cell.span} key={index} style={cell.style}>
-          <div className={styles.specialDiv}>
-            {childContent?.map(ct => {
-              return ct;
-            })}
-          </div>
-        </Col>
-      );
-    }
+    return <div>can't support cell</div>;
   };
 
   buildGroup = (cell: Cell): JSX.Element[] => {
@@ -170,7 +261,7 @@ export class GridCell extends React.Component<{ cell: Cell; lineColor?: string; 
       tableStyle = styles.defaultGrid;
     }
     return (
-      <div className={tableStyle} style={{ backgroundColor: this.props.lineColor }}>
+      <div className={styles.gridCell} style={{ backgroundColor: this.props.lineColor }}>
         {this.buildGrid()}
       </div>
     );

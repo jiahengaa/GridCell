@@ -2,8 +2,8 @@ import React from 'react';
 
 import styles from './XTable4.css';
 
-import { Cell, CellType, DataType, GridCell, specialDiv } from '../components/GridCell';
-import { Input, Select, DatePicker, Row, Col } from 'antd';
+import { Cell, CellType, DataType, GridCell, GRow, GCol } from '../components/GridCell';
+import { Input, Select, DatePicker } from 'antd';
 
 export default class XTable4 extends React.Component {
   constructor(props: any) {
@@ -280,10 +280,6 @@ export default class XTable4 extends React.Component {
           text: '客户信息',
           span: 21,
           type: CellType.Group,
-          dataType: DataType.List,
-          style: {
-            // marginBottom: '0px',
-          },
           child: [
             {
               text: '客户编号',
@@ -334,17 +330,12 @@ export default class XTable4 extends React.Component {
       text: 'ddd',
       type: CellType.Group,
       span: 24,
-      style: {
-        marginBottom: '1px',
-      },
       child: [
         {
           text: 'city-row',
           type: CellType.Group,
-          dataType: DataType.List,
           style: {
             marginBottom: '-1px',
-            paddingRight: '1px',
           },
           span: 24,
           child: this.state.list.map((item, index) => {
@@ -356,71 +347,54 @@ export default class XTable4 extends React.Component {
                 {
                   text: item.city,
                   span: 3,
-                  style: {
-                    height: (() => {
-                      let h = item.customers.length * 33.5 - 0.5 * (item.customers.length + 2);
-                      if (h < 31.5) {
-                        return 31.5 + 'px';
-                      } else {
-                        return h + 'px';
-                      }
-                    })(),
-                  },
                 },
                 {
                   text: 'customers',
                   span: 21,
                   type: CellType.Group,
-                  dataType: DataType.List,
-                  style: {
-                    marginBottom: '-1px',
-                  },
                   child: [
                     {
                       text: '第三栏：datalist',
                       type: CellType.Custom,
                       dataType: DataType.List,
                       span: 24,
+
                       render: () => {
                         if (
                           item.customers === undefined ||
                           item.customers === null ||
                           item.customers.length === 0
                         ) {
-                          return (
-                            <div key={0} style={{ height: '31.5px', backgroundColor: '#fff' }}>
-                              无数据
-                            </div>
-                          );
+                          return <GCol key={0}>无数据</GCol>;
                         } else {
                           return item.customers.map((ct, index) => {
                             return (
-                              <Row key={index} gutter={[1, 1]}>
-                                <Col span={3}>
+                              <GRow key={index}>
+                                <GCol span={3}>
                                   <div>{ct?.code}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.name}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.contactor}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.job}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.address}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.postcodes}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.tel}</div>
-                                </Col>
-                                <Col span={3}>
+                                </GCol>
+                                <GCol span={3}>
                                   <div>{ct?.fax}</div>
-                                </Col>
-                              </Row>
+                                </GCol>
+                              </GRow>
                             );
                           });
                         }
@@ -439,9 +413,6 @@ export default class XTable4 extends React.Component {
       text: '合计栏',
       type: CellType.Group,
       span: 24,
-      style: {
-        paddingRight: '0.5px',
-      },
       child: [
         {
           text: '合计',
@@ -464,9 +435,6 @@ export default class XTable4 extends React.Component {
       text: '审批意见栏',
       type: CellType.Group,
       span: 24,
-      style: {
-        paddingRight: '0.5px',
-      },
       child: [
         {
           text: '直属领导意见：',
@@ -490,9 +458,7 @@ export default class XTable4 extends React.Component {
   render() {
     return (
       <div className={styles.normal}>
-        <div style={{ fontSize: 'large', color: 'darkorange' }}>
-          由于表头等地方没有自定义ui控件需要使用，如果觉得这种方案麻烦，可以使用其他ui库的table实现,如ant的table
-        </div>
+        <div style={{ fontSize: 'large', color: 'darkorange' }}>画表如此简单！</div>
         <GridCell cell={this.state.cell} lineColor="green" />
       </div>
     );
