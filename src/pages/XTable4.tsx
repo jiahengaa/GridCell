@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './XTable4.css';
 
-import { Cell, CellType, DataType, GridCell, GRow, GCol } from '../components/GridCell';
+import GridCell, { CellType, Cell, DataType, GCol, GRow } from '@/index';
 import { Input, Select, DatePicker } from 'antd';
 
 export default class XTable4 extends React.Component {

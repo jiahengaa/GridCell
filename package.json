@@ -1,5 +1,10 @@
 {
-  "private": true,
+  "name": "easygridcell",
+  "author": "liujiaheng",
+  "version":"1.0.0",
+  "description": "GridCell is a react component",
+  "keywords": ["grid","cell","table","data-drive","react","typescript"],
+  "license": "MIT",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
