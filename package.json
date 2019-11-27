@@ -1,10 +1,14 @@
 {
-  "name": "easygridcell",
+  "name": "@liujiaheng/gridcell",
   "author": "liujiaheng",
-  "version":"1.0.0",
+  "version":"1.0.1",
   "description": "GridCell is a react component",
   "keywords": ["grid","cell","table","data-drive","react","typescript"],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiahengaa/GridCell"
+  },
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
