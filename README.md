@@ -1,9 +1,12 @@
-# WorkflowDesigner
+# GridCell
 
-WorkflowDesigner React
+GridCell is a react component,easy to use.
 
-# umi开发指导参考
+## screen shots
+![screenshots](src\screenshots\screenshot.gif)
 
-<https://umijs.org/guide/getting-started.html#environmental-preparation>
+## where is example code
 
-并设置umi的环境变量
+```
+src/pages/index.tsx
+```
