@@ -44,6 +44,10 @@ export default class Example1 extends React.Component {
     this.setState({ panes, activeKey });
   };
 
+  submit = () => {
+    console.log(this.state);
+  };
+
   remove = (targetKey: string) => {
     let { activeKey } = this.state;
     let lastIndex = 0;
@@ -84,6 +88,8 @@ export default class Example1 extends React.Component {
             </TabPane>
           ))}
         </Tabs>
+
+        <Button onClick={this.submit}>提交</Button>
       </div>
     );
   }
