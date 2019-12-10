@@ -153,7 +153,7 @@ export default class XTable extends React.Component {
       childTable.child?.push({
         span: 24,
         type: CellType.Group,
-        style: { marginRight: '-0.5px' },
+        style: { marginRight: '-0.5px', marginLeft: '-0.5px' },
         child: [
           {
             text: f.name.toString(),

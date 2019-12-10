@@ -36,6 +36,10 @@ const config: IConfig = {
           component: './CellDesigner',
         },
         {
+          path: '/Example1',
+          component: './Example1',
+        },
+        {
           path: '/',
           component: '../pages/index',
         },

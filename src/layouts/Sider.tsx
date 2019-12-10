@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import { Menu, Icon, Col, Row } from 'antd';
+import { Menu, Icon, Col, Row, Input } from 'antd';
 
 import XTable from '../pages/XTable';
 import XTable2 from '../pages/XTable2';
@@ -82,6 +82,15 @@ export default class Sider extends React.Component {
                 <XTable4 />
               </Route>
             </Switch>
+            <Input
+              style={{
+                borderRadius: '0px',
+                border: 'none',
+                boxShadow: 'none',
+                padding: '0px',
+              }}
+              defaultValue="sss"
+            ></Input>
           </Col>
         </div>
       </Router>

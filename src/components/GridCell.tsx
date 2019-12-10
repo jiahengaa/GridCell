@@ -110,7 +110,10 @@ export default class GridCell extends React.Component<{
     if (cell.type === CellType.Text || cell.type === undefined) {
       return (
         <div className={getCol(cell.span)} key={index}>
-          <div className={styles.cell}>
+          <div
+            className={styles.cell}
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+          >
             <div className={cell.className} style={cell.style}>
               {cell.text}
             </div>
@@ -128,7 +131,11 @@ export default class GridCell extends React.Component<{
         >
           <div
             className={styles.cell}
-            style={cell.dataType === undefined ? {} : { backgroundColor: 'transparent' }}
+            style={
+              cell.dataType === undefined
+                ? { display: 'flex', justifyContent: 'center', alignItems: 'center' }
+                : { backgroundColor: 'transparent' }
+            }
           >
             <div className={cell.className} style={cell.style}>
               {cell.render === undefined ? '' : cell.render()}
